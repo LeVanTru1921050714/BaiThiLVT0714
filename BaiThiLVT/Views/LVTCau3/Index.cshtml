@@ -1,0 +1,41 @@
+@model IEnumerable<BaiThiLVT.Models.LVTCau3>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Trang chủ</h1>
+
+<p>
+    <a asp-action="Create">Tạo mới</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Tên nhân viên
+            </th>
+            <th>
+                Địa chỉ
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenNhanVien)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiaChi)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IDNhanVien">Sửa</a> |
+                <a asp-action="Details" asp-route-id="@item.IDNhanVien">Chi tiết</a> |
+                <a asp-action="Delete" asp-route-id="@item.IDNhanVien">Xoá</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
